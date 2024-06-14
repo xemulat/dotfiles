@@ -1,57 +1,40 @@
 // -*- mode: jsonc -*-
 {
-    // "layer": "top", // Waybar at top layer
-    // "position": "bottom", // Waybar position (top|bottom|left|right)
-    //"height": , // Waybar height (to be removed for auto height)
-    // "width": 1280, // Waybar width
-    "spacing": 4, // Gaps between modules (4px)
-    // Choose the order of the modules
+    "height": 30,
+    "spacing": 4,
     "modules-left": [
-        "hyprland/workspaces",
-        "hyprland/window"
+        "hyprland/workspaces"
     ],
     "modules-right": [
         "pulseaudio",
-        "tray",
-        "clock"
+        "backlight",
+        "clock",
+        "tray"
     ],
-    // Modules configuration
-    "hyprland/workspaces": {
-        "format": "{icon} {windows}",
-        "format-window-separator": " ",
-        "window-rewrite-default": "",
-        "window-rewrite": {
-            "class<VSCodium>": "",
-            "Spotify": "",
-            "Alacritty": "",
-            "Vesktop": "󰙯",
-            "Floorp": "󰈹",
-            "steam": "",
-            "Heroic": "󱢾"
-        }
-    },
-    "hyprland/window": {
-        "format": "{}",
-        "rewrite": {},
-        "separate-outputs": true
-    },
-    "pulseaudio": {
-        "format": "{icon} {volume}%",
-        "format-muted": "󰝟 00%",
-        "format-icons": {
-            "default": ["󰕿", "󰖀", "󰕾"]
-        },
-        "scroll-step": 1,
-        "on-click": "pavucontrol",
-        "ignored-sinks": ["Easy Effects Sink"]
-    },
     "tray": {
-        // "icon-size": 21,
-        "spacing": 2
+        "spacing": 10
     },
     "clock": {
-        // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}"
+    },
+    "pulseaudio": {
+        "scroll-step": 2,
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
     }
 }
